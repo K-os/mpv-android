@@ -7,6 +7,13 @@
 
 mkdir -p deps && cd deps
 
+# libxml2
+if [ ! -d libxml2 ]; then
+	mkdir libxml2
+	$WGET ftp://xmlsoft.org/libxml2/libxml2-2.9.12.tar.gz -O - | \
+		tar -xz -C libxml2 --strip-components=1
+fi
+
 # mbedtls
 if [ ! -d mbedtls ]; then
 	mkdir mbedtls
