@@ -24,10 +24,10 @@ cpuflags=
 
 ../configure \
 	--target-os=android --enable-cross-compile --cross-prefix=$ndk_triple- --cc=$CC \
-	--arch=${ndk_triple%%-*} --cpu=$cpu --enable-{jni,mediacodec,mbedtls,libdav1d,libxml2} \
+	--arch=${ndk_triple%%-*} --cpu=$cpu --enable-{jni,mediacodec,mbedtls,libdav1d,libxml2,libopenvvc} \
 	--extra-cflags="-I$prefix_dir/include $cpuflags" --extra-ldflags="-L$prefix_dir/lib" \
 	--disable-static --enable-shared --enable-{gpl,version3} \
-	--pkg-config=pkg-config --disable-{stripping,doc,programs,libcaca} \
+	--pkg-config=pkg-config --disable-{stripping,doc,programs,libcaca,iconv} \
 	--disable-{muxers,encoders,devices} --enable-encoder=mjpeg,png
 
 make -j$cores

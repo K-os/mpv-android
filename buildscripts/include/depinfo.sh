@@ -18,9 +18,10 @@ v_libxml2=2.9.12
 # I would've used a dict but putting arrays in a dict is not a thing
 
 dep_libxml2=()
+dep_openvvc=()
 dep_mbedtls=()
 dep_dav1d=()
-dep_ffmpeg=(mbedtls dav1d libxml2)
+dep_ffmpeg=(mbedtls dav1d libxml2 openvvc)
 dep_freetype2=()
 dep_fribidi=()
 dep_harfbuzz=()

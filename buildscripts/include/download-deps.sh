@@ -14,6 +14,11 @@ if [ ! -d libxml2 ]; then
 		tar -xz -C libxml2 --strip-components=1
 fi
 
+# openvvc
+if [ ! -d openvvc ]; then
+	git clone https://github.com/OpenVVC/OpenVVC openvvc
+fi
+
 # mbedtls
 if [ ! -d mbedtls ]; then
 	mkdir mbedtls
@@ -22,11 +27,12 @@ if [ ! -d mbedtls ]; then
 fi
 
 # dav1d
-[ ! -d dav1d ] && git clone https://code.videolan.org/videolan/dav1d.git
+[ ! -d dav1d ] && git clone https://code.videolan.org/videolan/dav1d.git --branch 0.8.2
 
 # ffmpeg
 if [ ! -d ffmpeg ]; then
-	git clone https://github.com/FFmpeg/FFmpeg ffmpeg
+	# git clone https://github.com/FFmpeg/FFmpeg ffmpeg
+	git clone https://github.com/tbiat/FFmpeg ffmpeg
 	[ $TRAVIS -eq 1 ] && ( cd ffmpeg; git checkout $v_travis_ffmpeg )
 fi
 
