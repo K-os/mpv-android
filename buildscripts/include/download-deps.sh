@@ -15,8 +15,13 @@ if [ ! -d libxml2 ]; then
 fi
 
 # openvvc
-if [ ! -d openvvc ]; then
-	git clone https://github.com/OpenVVC/OpenVVC openvvc
+#if [ ! -d openvvc ]; then
+#	git clone https://github.com/OpenVVC/OpenVVC openvvc
+#fi
+
+# vvdec
+if [ ! -d vvdec ]; then
+	git clone https://github.com/fraunhoferhhi/vvdec vvdec
 fi
 
 # mbedtls

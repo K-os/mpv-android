@@ -7,7 +7,7 @@ cleanbuild=0
 nodeps=0
 clang=1
 target=mpv-android
-arch=armv7l
+arch=arm64
 
 getdeps () {
 	varname="dep_${1//-/_}[*]"
@@ -25,21 +25,25 @@ loadarch () {
 		export ndk_triple=arm-linux-androideabi
 		cc_triple=armv7a-linux-androideabi$apilvl
 		prefix_name=armv7l
+		export android_abi=armeabi-v7a
 	elif [ "$1" == "arm64" ]; then
 		export ndk_suffix=-arm64
 		export ndk_triple=aarch64-linux-android
 		cc_triple=$ndk_triple$apilvl
 		prefix_name=arm64
+		export android_abi=arm64-v8a
 	elif [ "$1" == "x86" ]; then
 		export ndk_suffix=-x86
 		export ndk_triple=i686-linux-android
 		cc_triple=$ndk_triple$apilvl
 		prefix_name=x86
+		export android_abi=x86
 	elif [ "$1" == "x86_64" ]; then
 		export ndk_suffix=-x64
 		export ndk_triple=x86_64-linux-android
 		cc_triple=$ndk_triple$apilvl
 		prefix_name=x86_64
+		export android_abi=x86_64
 	else
 		echo "Invalid architecture"
 		exit 1
